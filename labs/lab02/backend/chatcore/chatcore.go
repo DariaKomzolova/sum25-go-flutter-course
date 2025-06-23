@@ -34,26 +34,23 @@ func (b *Broker) Run() {
 	for {
 		select {
 		case msg := <-b.input:
+			b.usersMutex.RLock()
 			if msg.Broadcast {
-				b.usersMutex.RLock()
 				for _, ch := range b.users {
-					select {
-					case ch <- msg:
-					default:
-					}
+					// Гарантированная доставка, либо в горутину
+					go func(c chan Message) {
+						c <- msg
+					}(ch)
 				}
-				b.usersMutex.RUnlock()
 			} else {
-				b.usersMutex.RLock()
 				ch, ok := b.users[msg.Recipient]
 				if ok {
-					select {
-					case ch <- msg:
-					default:
-					}
+					go func(c chan Message) {
+						c <- msg
+					}(ch)
 				}
-				b.usersMutex.RUnlock()
 			}
+			b.usersMutex.RUnlock()
 		case <-b.ctx.Done():
 			close(b.done)
 			return
@@ -63,6 +60,8 @@ func (b *Broker) Run() {
 
 func (b *Broker) SendMessage(msg Message) error {
 	select {
+	case <-b.done:
+		return context.Canceled
 	case b.input <- msg:
 		return nil
 	case <-b.ctx.Done():
