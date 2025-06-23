@@ -2,6 +2,7 @@ package user
 
 import (
 	"errors"
+	"fmt"
 )
 
 var (
@@ -22,24 +23,76 @@ type User struct {
 
 // NewUser creates a new user with validation
 func NewUser(name string, age int, email string) (*User, error) {
-	// TODO: Implement user creation with validation
-	return nil, nil
+	user := &User{
+		Name:  name,
+		Age:   age,
+		Email: email,
+	}
+
+	if err := user.Validate(); err != nil {
+		return nil, err
+	}
+	return user, nil
 }
 
 // Validate checks if the user data is valid
 func (u *User) Validate() error {
-	// TODO: Implement user validation
+	if u.Name == "" {
+		return ErrEmptyName
+	}
+	if u.Age < 0 || u.Age > 150 {
+		return ErrInvalidAge
+	}
+	if !IsValidEmail(u.Email) {
+		return ErrInvalidEmail
+	}
 	return nil
 }
 
 // String returns a string representation of the user
 func (u *User) String() string {
-	// TODO: Implement string representation
-	return ""
+	return fmt.Sprintf("User{Name: %s, Age: %d, Email: %s}", u.Name, u.Age, u.Email)
 }
 
 // IsValidEmail checks if the email format is valid
 func IsValidEmail(email string) bool {
-	// TODO: Implement email validation
+	at := 0
+	for _, ch := range email {
+		if ch == '@' {
+			at++
+		}
+	}
+	if at != 1 {
+		return false
+	}
+
+	if len(email) == 0 || email[0] == '@' || email[len(email)-1] == '@' {
+		return false
+	}
+
+	atIndex := -1
+	for i, ch := range email {
+		if ch == '@' {
+			atIndex = i
+			break
+		}
+	}
+	if atIndex == -1 || atIndex == len(email)-1 {
+		return false
+	}
+	domainPart := email[atIndex+1:]
+	if len(domainPart) == 0 || !containsDot(domainPart) {
+		return false
+	}
+
+	return true
+}
+
+func containsDot(s string) bool {
+	for _, ch := range s {
+		if ch == '.' {
+			return true
+		}
+	}
 	return false
 }

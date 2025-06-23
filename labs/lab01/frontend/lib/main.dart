@@ -14,7 +14,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Lab 01 Demo',
+      title: 'Lab 01',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -46,46 +47,68 @@ class MyHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        // TRY THIS: Try changing the color here to a specific color (to
-        // Colors.amber, perhaps?) and trigger a hot reload to see the AppBar
-        // change color while the other colors stay the same.
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
         title: const Text('Lab 01 Demo'),
       ),
       body: SingleChildScrollView(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            const Text(
-              'Profile Card Example',
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+  padding: const EdgeInsets.all(16),
+  child: Column(
+    crossAxisAlignment: CrossAxisAlignment.stretch,
+    children: [
+      _buildSectionTitle('Profile Card Example'),
+      const ProfileCard(
+        name: 'John Doe',
+        email: 'john@example.com',
+        age: 30,
+        avatarUrl: null,
+      ),
+      const SizedBox(height: 24),
+
+      _buildSectionTitle('Counter App Example'),
+      Card(
+        elevation: 4,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+        child: Padding(
+          padding: const EdgeInsets.all(16),
+          child: ConstrainedBox(
+            constraints: const BoxConstraints(
+              minHeight: 100, // минимальная высота для CounterApp, подгони под свой контент
+              maxHeight: 200, // ограничение высоты, чтобы не "вытягивал" всё
             ),
-            const SizedBox(height: 8),
-            const ProfileCard(
-              name: 'John Doe',
-              email: 'john@example.com',
-              age: 30,
-              avatarUrl: 'https://example.com/avatar.jpg',
-            ),
-            const SizedBox(height: 24),
-            const Text(
-              'Counter App Example',
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-            ),
-            const SizedBox(height: 8),
-            const CounterApp(),
-            const SizedBox(height: 24),
-            const Text(
-              'Registration Form Example',
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-            ),
-            const SizedBox(height: 8),
-            const RegistrationForm(),
-          ],
+            child: const CounterApp(),
+          ),
         ),
+      ),
+      const SizedBox(height: 24),
+
+      _buildSectionTitle('Registration Form Example'),
+      Card(
+        elevation: 4,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+        child: Padding(
+          padding: const EdgeInsets.all(16),
+          child: ConstrainedBox(
+            constraints: const BoxConstraints(
+              minHeight: 200,
+              maxHeight: 400,
+            ),
+            child: const RegistrationForm(),
+          ),
+        ),
+      ),
+    ],
+  ),
+),
+
+    );
+  }
+
+  Widget _buildSectionTitle(String text) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 8),
+      child: Text(
+        text,
+        style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
       ),
     );
   }
