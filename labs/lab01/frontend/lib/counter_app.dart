@@ -31,54 +31,47 @@ class _CounterAppState extends State<CounterApp> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        child: SingleChildScrollView(
-          // Позволяет прокручивать при нехватке места
-          child: Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const SizedBox(height: 80),
-                const Text(
-                  'Counter',
-                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-                ),
-                const SizedBox(height: 16),
-                const Text(
-                  'Current Count:',
-                  style: TextStyle(fontSize: 20),
-                ),
-                const SizedBox(height: 12),
-                Text(
-                  '$_counter',
-                  style: const TextStyle(fontSize: 48, fontWeight: FontWeight.bold),
-                  key: const Key('counterText'),
-                ),
-                const SizedBox(height: 24),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    IconButton(
-                      onPressed: _decrement,
-                      icon: const Icon(Icons.remove),
-                    ),
-                    const SizedBox(width: 12),
-                    IconButton(
-                      onPressed: _reset,
-                      icon: const Icon(Icons.refresh),
-                    ),
-                    const SizedBox(width: 12),
-                    IconButton(
-                      onPressed: _increment,
-                      icon: const Icon(Icons.add),
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 40),
-              ],
-            ),
+      appBar: AppBar(
+        title: const Text('Counter App'),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.refresh),
+            onPressed: _reset,
           ),
+        ],
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const Text(
+              'Current Count:',
+              style: TextStyle(fontSize: 20),
+            ),
+            const SizedBox(height: 12),
+            Text(
+              '$_counter',
+              style: const TextStyle(fontSize: 48, fontWeight: FontWeight.bold),
+              key: const Key('counterText'),
+            ),
+          ],
         ),
+      ),
+      floatingActionButton: Row(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          FloatingActionButton(
+            heroTag: 'decrement',
+            onPressed: _decrement,
+            child: const Icon(Icons.remove),
+          ),
+          const SizedBox(width: 16),
+          FloatingActionButton(
+            heroTag: 'increment',
+            onPressed: _increment,
+            child: const Icon(Icons.add),
+          ),
+        ],
       ),
     );
   }

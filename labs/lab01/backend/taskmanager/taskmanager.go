@@ -6,15 +6,10 @@ import (
 )
 
 var (
-	// ErrTaskNotFound is returned when a task is not found
 	ErrTaskNotFound = errors.New("task not found")
-	// ErrEmptyTitle is returned when the task title is empty
-	ErrEmptyTitle = errors.New("task title cannot be empty")
-	// ErrInvalidID is returned when the task ID is invalid
-	ErrInvalidID = errors.New("invalid task ID")
+	ErrEmptyTitle   = errors.New("title cannot be empty")
 )
 
-// Task represents a single task
 type Task struct {
 	ID          int
 	Title       string
@@ -23,22 +18,18 @@ type Task struct {
 	CreatedAt   time.Time
 }
 
-// TaskManager manages a collection of tasks
 type TaskManager struct {
 	tasks  map[int]*Task
 	nextID int
 }
 
-// NewTaskManager creates a new task manager
 func NewTaskManager() *TaskManager {
-
 	return &TaskManager{
 		tasks:  make(map[int]*Task),
 		nextID: 1,
 	}
 }
 
-// AddTask adds a new task to the manager
 func (tm *TaskManager) AddTask(title, description string) (*Task, error) {
 	if title == "" {
 		return nil, ErrEmptyTitle
@@ -55,7 +46,6 @@ func (tm *TaskManager) AddTask(title, description string) (*Task, error) {
 	return task, nil
 }
 
-// UpdateTask updates an existing task
 func (tm *TaskManager) UpdateTask(id int, title, description string, done bool) error {
 	task, ok := tm.tasks[id]
 	if !ok {
@@ -70,7 +60,6 @@ func (tm *TaskManager) UpdateTask(id int, title, description string, done bool) 
 	return nil
 }
 
-// DeleteTask removes a task from the manager
 func (tm *TaskManager) DeleteTask(id int) error {
 	if _, ok := tm.tasks[id]; !ok {
 		return ErrTaskNotFound
@@ -79,7 +68,6 @@ func (tm *TaskManager) DeleteTask(id int) error {
 	return nil
 }
 
-// GetTask retrieves a task by ID
 func (tm *TaskManager) GetTask(id int) (*Task, error) {
 	task, ok := tm.tasks[id]
 	if !ok {
@@ -88,7 +76,6 @@ func (tm *TaskManager) GetTask(id int) (*Task, error) {
 	return task, nil
 }
 
-// ListTasks returns all tasks, optionally filtered by done status
 func (tm *TaskManager) ListTasks(filterDone *bool) []*Task {
 	var result []*Task
 	for _, task := range tm.tasks {

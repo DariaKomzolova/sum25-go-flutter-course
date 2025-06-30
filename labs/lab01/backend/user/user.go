@@ -6,22 +6,17 @@ import (
 )
 
 var (
-	// ErrInvalidEmail is returned when the email format is invalid
+	ErrInvalidName  = errors.New("invalid name: must be between 1 and 30 characters")
+	ErrInvalidAge   = errors.New("invalid age: must be between 0 and 150")
 	ErrInvalidEmail = errors.New("invalid email format")
-	// ErrInvalidAge is returned when the age is invalid
-	ErrInvalidAge = errors.New("invalid age: must be between 0 and 150")
-	// ErrEmptyName is returned when the name is empty
-	ErrEmptyName = errors.New("name cannot be empty")
 )
 
-// User represents a user in the system
 type User struct {
 	Name  string
 	Age   int
 	Email string
 }
 
-// NewUser creates a new user with validation
 func NewUser(name string, age int, email string) (*User, error) {
 	user := &User{
 		Name:  name,
@@ -35,10 +30,9 @@ func NewUser(name string, age int, email string) (*User, error) {
 	return user, nil
 }
 
-// Validate checks if the user data is valid
 func (u *User) Validate() error {
-	if u.Name == "" {
-		return ErrEmptyName
+	if u.Name == "" || len(u.Name) > 30 {
+		return ErrInvalidName
 	}
 	if u.Age < 0 || u.Age > 150 {
 		return ErrInvalidAge
@@ -49,12 +43,10 @@ func (u *User) Validate() error {
 	return nil
 }
 
-// String returns a string representation of the user
 func (u *User) String() string {
-	return fmt.Sprintf("User{Name: %s, Age: %d, Email: %s}", u.Name, u.Age, u.Email)
+	return fmt.Sprintf("Name: %s, Age: %d, Email: %s", u.Name, u.Age, u.Email)
 }
 
-// IsValidEmail checks if the email format is valid
 func IsValidEmail(email string) bool {
 	at := 0
 	for _, ch := range email {
@@ -95,4 +87,12 @@ func containsDot(s string) bool {
 		}
 	}
 	return false
+}
+
+func IsValidName(name string) bool {
+	return name != "" && len(name) <= 30
+}
+
+func IsValidAge(age int) bool {
+	return age >= 0 && age <= 150
 }
