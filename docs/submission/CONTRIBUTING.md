@@ -23,6 +23,9 @@ This guide explains how to submit lab assignments and participate in the collabo
 ### Lab Submission Process (Step-by-Step with Screenshots)
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> d29e791 (explain step-by-step how to submit)
 #### Step 0: Update Branch Using Sync Fork
 ![Step 0: Update Branch Using Sync Fork](assets/0.%20update%20branch%20using%20sync%20fork.png)
 
@@ -56,10 +59,13 @@ git checkout -b lab01-surname-name
 
 #### Step 3: Commit and Push Your Changes
 ![Step 3: Commit and Push](assets/3.%20commit%20and%20push.png)
+<<<<<<< HEAD
 =======
 #### Step 0: Commit and Push Your Changes
 ![Step 0: Commit and Push](assets/0.%20commit%20and%20push.png)
 >>>>>>> 5ea9fc2 (update lab1 and workflow of submission)
+=======
+>>>>>>> d29e791 (explain step-by-step how to submit)
 
 ```bash
 # Stage your changes
@@ -85,12 +91,17 @@ git push origin lab01-surname-name
 - Mention tests and documentation updates
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 #### Step 4: Create Local Pull Request
 ![Step 4: Create Local Pull Request](assets/4.%20create%20local%20pull%20request.png)
 =======
 #### Step 1: Create Local Pull Request
 ![Step 1: Create Local Pull Request](assets/1.%20create%20local%20pull%20request.png)
 >>>>>>> 5ea9fc2 (update lab1 and workflow of submission)
+=======
+#### Step 4: Create Local Pull Request
+![Step 4: Create Local Pull Request](assets/4.%20create%20local%20pull%20request.png)
+>>>>>>> d29e791 (explain step-by-step how to submit)
 
 1. Go to your fork on GitHub
 2. Click "Compare & pull request" for your lab branch
@@ -98,12 +109,17 @@ git push origin lab01-surname-name
 4. **Description**: Use the template below
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 #### Step 5: Write Information for Local PR
 ![Step 5: Write Information for Local PR](assets/5.%20write%20info%20for%20local%20pr.png)
 =======
 #### Step 2: Write Information for Local PR
 ![Step 2: Write Information for Local PR](assets/2.%20write%20info%20for%20local%20pr.png)
 >>>>>>> 5ea9fc2 (update lab1 and workflow of submission)
+=======
+#### Step 5: Write Information for Local PR
+![Step 5: Write Information for Local PR](assets/5.%20write%20info%20for%20local%20pr.png)
+>>>>>>> d29e791 (explain step-by-step how to submit)
 
 Fill out the pull request template with:
 - What was implemented
@@ -111,6 +127,7 @@ Fill out the pull request template with:
 - Questions/Notes
 - Checklist completion
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 #### Step 6: See Open Status
 ![Step 6: See Open Status](assets/6.%20see%20open%20status.png)
@@ -127,22 +144,32 @@ Wait for the automated workflow to complete and check that you see a comment wit
 =======
 #### Step 3: Check Open Status
 ![Step 3: Check Open Status](assets/3.%20see%20open%20status.png)
+=======
+#### Step 6: See Open Status
+![Step 6: See Open Status](assets/6.%20see%20open%20status.png)
+>>>>>>> d29e791 (explain step-by-step how to submit)
 
 Verify that your pull request is open and the workflow is running.
 
-#### Step 4: Wait for Workflow Completion
-![Step 4: Wait for Workflow Completion](assets/4.%20wait%20and%20check%20that%20full%20workflow%20is%20correct%20-%20you%20see%20comment%20with%20points.png)
+#### Step 7: Wait and Check Workflow
+![Step 7: Wait and Check Workflow](assets/7.%20wait%20and%20check%20that%20full%20workflow%20is%20correct%20-%20you%20see%20comment%20with%20points.png)
 
 Wait for the automated workflow to complete and check that you see a comment with your points/score.
 
+<<<<<<< HEAD
 #### Step 5: Create Pull Request to Base Repository
 ![Step 5: Create Pull Request to Base Repository](assets/5.%20create%20pull%20request%20to%20base%20repo.png)
 >>>>>>> 5ea9fc2 (update lab1 and workflow of submission)
+=======
+#### Step 8: Create Pull Request to Base Repository
+![Step 8: Create Pull Request to Base Repository](assets/8.%20create%20pull%20request%20to%20base%20repo.png)
+>>>>>>> d29e791 (explain step-by-step how to submit)
 
 1. Go to the main course repository
 2. Create a new pull request from your fork
 3. This will be your final submission
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 #### Step 9: See Pull Request to Base is Blocked
 ![Step 9: See Pull Request to Base is Blocked](assets/9.%20see%20pull%20request%20to%20base%20is%20blocked.png)
@@ -199,50 +226,79 @@ If you're already working on your lab branch and the base repository has been up
 =======
 #### Step 6: Verify Pull Request is Blocked
 ![Step 6: Verify Pull Request is Blocked](assets/6.%20see%20pull%20request%20to%20base%20is%20blocked.png)
+=======
+#### Step 9: See Pull Request to Base is Blocked
+![Step 9: See Pull Request to Base is Blocked](assets/9.%20see%20pull%20request%20to%20base%20is%20blocked.png)
+>>>>>>> d29e791 (explain step-by-step how to submit)
 
 The pull request to the base repository should be blocked (this is expected).
 
-#### Step 7: Copy Link to Local PR
-![Step 7: Copy Link to Local PR](assets/7.%20copy%20link%20to%20local%20pr.png)
+#### Step 10: Copy Link to Local PR
+![Step 10: Copy Link to Local PR](assets/10.%20copy%20link%20to%20local%20pr.png)
 
 Copy the URL of your local pull request (from your fork).
 
-#### Step 8: Add Local PR Link to Description
-![Step 8: Add Local PR Link to Description](assets/8.%20put%20link%20to%20local%20pr%20into%20desciption%20to%20global%20pr.png)
+#### Step 11: Put Link to Local PR into Description
+![Step 11: Put Link to Local PR into Description](assets/11.%20put%20link%20to%20local%20pr%20into%20desciption%20to%20global%20pr.png)
 
 Add the link to your local pull request in the description of the global pull request.
 
-#### Step 9: Verify Everything is Correct
-![Step 9: Verify Everything is Correct](assets/9.%20check%20that%20it%20is%20correct.png)
+#### Step 12: Check That It is Correct
+![Step 12: Check That It is Correct](assets/12.%20check%20that%20it%20is%20correct.png)
 
 Double-check that all information is correct and complete.
 
-#### Step 10: Copy Link to Global PR
-![Step 10: Copy Link to Global PR](assets/10.%20copy%20link%20to%20global%20pr.png)
+#### Step 13: Copy Link to Global PR
+![Step 13: Copy Link to Global PR](assets/13.%20copy%20link%20to%20global%20pr.png)
 
 Copy the URL of your global pull request (to the base repository).
 
-#### Step 11: Submit Link to Moodle
-![Step 11: Submit Link to Moodle](assets/11.%20submit%20link%20to%20global%20pr%20into%20moodle.png)
+#### Step 14: Submit Link to Global PR into Moodle
+![Step 14: Submit Link to Global PR into Moodle](assets/14.%20submit%20link%20to%20global%20pr%20into%20moodle.png)
 
 Submit the link to your global pull request in Moodle for grading.
 
-### Lab Branch Creation Process
+### 🔄 Getting Updates While Working on Your Branch
 
-#### Step 1: Create a Lab Branch
+If you're already working on your lab branch and the base repository has been updated (new features, bug fixes, etc.), you'll need to get those updates into your branch. Here's how:
+
+> **⚠️ Important**: Before updating your branch, make sure to commit or stash your current changes. If you have uncommitted changes, Git will prevent you from switching branches or updating.
+>
+> ```bash
+> # Check if you have uncommitted changes
+> git status
+> 
+> # If you have changes, either commit them:
+> git add .
+> git commit -m "WIP: save current progress before updating branch"
+> 
+> # OR stash them temporarily:
+> git stash push -m "WIP: save changes before updating branch"
+> # Later, restore with: git stash pop
+> ```
+
+#### Option 1: Rebase Your Branch (Recommended)
 ```bash
+<<<<<<< HEAD
 # Keep your main branch up to date
 >>>>>>> 5ea9fc2 (update lab1 and workflow of submission)
+=======
+# Switch to main branch and update it
+>>>>>>> d29e791 (explain step-by-step how to submit)
 git checkout main
 git pull upstream main
 git push origin main
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> d29e791 (explain step-by-step how to submit)
 # Switch back to your lab branch
 git checkout lab01-surname-name
 
 # Rebase your branch onto the updated main
 git rebase main
+<<<<<<< HEAD
 ```
 
 **What this does**: Replays your commits on top of the updated main branch, keeping a clean history.
@@ -297,26 +353,78 @@ If this command shows commits, there are updates available.
 =======
 # Create a new branch for the lab
 git checkout -b lab01-surname-name
+=======
+>>>>>>> d29e791 (explain step-by-step how to submit)
 ```
 
-**Branch naming convention**: `labXX-surname-name` (all lowercase, no spaces, like in Moodle)
-- ✅ `lab01-smith-john`
-- ✅ `lab03-garcia-maria`
-- ❌ `lab01-John-Smith`
-- ❌ `lab01_john_smith`
+**What this does**: Replays your commits on top of the updated main branch, keeping a clean history.
 
+<<<<<<< HEAD
 #### Step 2: Complete the Assignment
 >>>>>>> 5ea9fc2 (update lab1 and workflow of submission)
+=======
+#### Option 2: Merge Updates into Your Branch
+```bash
+# Switch to main branch and update it
+git checkout main
+git pull upstream main
+git push origin main
+
+# Switch back to your lab branch
+git checkout lab01-surname-name
+
+# Merge the updated main into your branch
+git merge main
+```
+
+**What this does**: Creates a merge commit that combines your work with the updates.
+
+#### Handling Conflicts
+If you encounter conflicts during rebase or merge:
+
+1. **Git will pause** and show you which files have conflicts
+2. **Open the conflicted files** and look for conflict markers (`<<<<<<<`, `=======`, `>>>>>>>`)
+3. **Edit the files** to resolve conflicts by choosing which changes to keep
+4. **Stage the resolved files**:
+   ```bash
+   git add <filename>
+   ```
+5. **Continue the process**:
+   - For rebase: `git rebase --continue`
+   - For merge: `git commit` (Git will create a merge commit)
+
+#### When to Update Your Branch
+- **Before starting new work** on your lab
+- **When you see announcements** about base repository updates
+- **If you encounter issues** that might be fixed in recent updates
+- **Before submitting** your final pull request
+
+#### Pro Tip: Check for Updates Regularly
+```bash
+# Check if there are updates without switching branches
+git fetch upstream
+git log HEAD..upstream/main --oneline
+```
+If this command shows commits, there are updates available.
+
+### Lab Development Process
+
+#### Complete the Assignment
+>>>>>>> d29e791 (explain step-by-step how to submit)
 1. Navigate to the lab directory: `labs/labXX/`
 2. Read the `README.md` for specific requirements
 3. Implement both **Go backend** and **Flutter frontend** components
 4. Follow the existing code style and structure
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 #### Test Your Implementation
 =======
 #### Step 3: Test Your Implementation
 >>>>>>> 5ea9fc2 (update lab1 and workflow of submission)
+=======
+#### Test Your Implementation
+>>>>>>> d29e791 (explain step-by-step how to submit)
 ```bash
 # Run all tests
 make test
