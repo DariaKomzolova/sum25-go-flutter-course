@@ -56,35 +56,37 @@ class _RegistrationFormState extends State<RegistrationForm> {
               children: [
                 TextFormField(
                   key: const Key('name'),
-                  controller: _nameController,
-                  decoration: const InputDecoration(labelText: 'Name'),
-                  textInputAction: TextInputAction.next,
+                  // TODO: use _nameController
+                  decoration: const InputDecoration(
+                    labelText: 'Name',
+                    hintText: 'Enter your name',
+                  ),
                   validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return 'Please enter your name';
-                    }
+                    // TODO: validate if value is not null or empty and return 'Please enter your name'
                     return null;
                   },
                 ),
                 const SizedBox(height: 16),
                 TextFormField(
                   key: const Key('email'),
-                  controller: _emailController,
-                  decoration: const InputDecoration(labelText: 'Email'),
-                  keyboardType: TextInputType.emailAddress,
-                  textInputAction: TextInputAction.next,
+                  // TODO: use _emailController
+                  decoration: const InputDecoration(
+                    labelText: 'Email',
+                    hintText: 'Enter your email',
+                  ),
                   validator: (value) {
-                    if (value == null || value.isEmpty || !value.contains('@')) {
-                      return 'Please enter a valid email';
-                    }
+                    // TODO: validate if value is not null or empty and it match word@word.word, return 'Please enter a valid email'
                     return null;
                   },
                 ),
                 const SizedBox(height: 16),
                 TextFormField(
                   key: const Key('password'),
-                  controller: _passwordController,
-                  decoration: const InputDecoration(labelText: 'Password'),
+                  // TODO: use _passwordController
+                  decoration: const InputDecoration(
+                    labelText: 'Password',
+                    hintText: 'Enter your password',
+                  ),
                   obscureText: true,
                   textInputAction: TextInputAction.done,
                   onFieldSubmitted: (_) => _submitForm(),
@@ -95,12 +97,8 @@ class _RegistrationFormState extends State<RegistrationForm> {
                     return null;
                   },
                 ),
-                const SizedBox(height: 24),
-                ElevatedButton(
-                  key: const Key('registerButton'),
-                  onPressed: _submitForm,
-                  child: const Text('Submit'),
-                ),
+                const SizedBox(height: 32),
+                // TODO: add a ElevatedButton with onPressed: _submitForm and child: Text('Submit')
               ],
             ),
           ),
