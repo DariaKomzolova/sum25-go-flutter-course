@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:frontend/counter_app.dart';
+import 'package:frontend/profile_card.dart';
 import 'package:frontend/registration_form.dart';
-import 'package:frontend/profile_card.dart'; // Добавь этот импорт
 
 void main() {
   runApp(const MyApp());
@@ -39,15 +39,47 @@ class MyHomePage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Center(
-              child: SingleChildScrollView(
-                padding: EdgeInsets.all(16.0),
-                // TODO: change to ProfileCard
-                child: SizedBox.shrink(),
+            _buildSectionTitle('Profile Card Example'),
+            const ProfileCard(
+              name: 'John Doe',
+              email: 'john@example.com',
+              age: 30,
+              avatarUrl: null,
+            ),
+            const SizedBox(height: 24),
+
+            _buildSectionTitle('Counter App Example'),
+            Card(
+              elevation: 4,
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+              child: Padding(
+                padding: const EdgeInsets.all(16),
+                child: ConstrainedBox(
+                  constraints: const BoxConstraints(
+                    minHeight: 100,
+                    maxHeight: 200,
+                  ),
+                  child: const CounterApp(),
+                ),
               ),
             ),
-            CounterApp(),
-            RegistrationForm(),
+            const SizedBox(height: 24),
+
+            _buildSectionTitle('Registration Form Example'),
+            Card(
+              elevation: 4,
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+              child: Padding(
+                padding: const EdgeInsets.all(16),
+                child: ConstrainedBox(
+                  constraints: const BoxConstraints(
+                    minHeight: 200,
+                    maxHeight: 400,
+                  ),
+                  child: const RegistrationForm(),
+                ),
+              ),
+            ),
           ],
         ),
       ),

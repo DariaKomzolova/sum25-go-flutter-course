@@ -3,29 +3,23 @@ package calculator
 import (
 	"errors"
 	"fmt"
+	"strconv"
 )
 
 var ErrDivisionByZero = errors.New("division by zero")
 
-// Add adds two float64 numbers
 func Add(a, b float64) float64 {
-	// TODO: Implement this function
-	return 0
+	return a + b
 }
 
-// Subtract subtracts b from a
 func Subtract(a, b float64) float64 {
-	// TODO: Implement this function
-	return 0
+	return a - b
 }
 
-// Multiply multiplies two float64 numbers
 func Multiply(a, b float64) float64 {
-	// TODO: Implement this function
-	return 0
+	return a * b
 }
 
-// Divide divides a by b, returns an error if b is zero
 func Divide(a, b float64) (float64, error) {
 	if b == 0 {
 		return 0, ErrDivisionByZero
@@ -34,8 +28,7 @@ func Divide(a, b float64) (float64, error) {
 }
 
 func StringToFloat(s string) (float64, error) {
-	// TODO: Implement this function
-	return 0, nil
+	return strconv.ParseFloat(s, 64)
 }
 
 func FloatToString(f float64, precision int) string {
