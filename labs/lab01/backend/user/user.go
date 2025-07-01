@@ -2,7 +2,6 @@ package user
 
 import (
 	"errors"
-	"fmt"
 )
 
 var (
@@ -44,53 +43,26 @@ func (u *User) Validate() error {
 }
 
 func (u *User) String() string {
-	return fmt.Sprintf("Name: %s, Age: %d, Email: %s", u.Name, u.Age, u.Email)
+	// TODO: Implement this function
+	return ""
 }
 
+// NewUser creates a new user with validation, returns an error if the user is not valid
+func NewUser(name string, age int, email string) (*User, error) {
+	// TODO: Implement this function
+	return nil, nil
+}
+
+// IsValidEmail checks if the email format is valid
+// You can use regexp.MustCompile to compile the email regex
 func IsValidEmail(email string) bool {
-	at := 0
-	for _, ch := range email {
-		if ch == '@' {
-			at++
-		}
-	}
-	if at != 1 {
-		return false
-	}
-
-	if len(email) == 0 || email[0] == '@' || email[len(email)-1] == '@' {
-		return false
-	}
-
-	atIndex := -1
-	for i, ch := range email {
-		if ch == '@' {
-			atIndex = i
-			break
-		}
-	}
-	if atIndex == -1 || atIndex == len(email)-1 {
-		return false
-	}
-	domainPart := email[atIndex+1:]
-	if len(domainPart) == 0 || !containsDot(domainPart) {
-		return false
-	}
-
-	return true
-}
-
-func containsDot(s string) bool {
-	for _, ch := range s {
-		if ch == '.' {
-			return true
-		}
-	}
+	// TODO: Implement this function
 	return false
 }
 
 func IsValidName(name string) bool {
-	return name != "" && len(name) <= 30
+	// TODO: Implement this function
+	return false
 }
 
 func IsValidAge(age int) bool {
