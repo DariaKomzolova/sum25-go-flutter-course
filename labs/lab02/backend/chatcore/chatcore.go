@@ -37,16 +37,17 @@ func (b *Broker) Run() {
 			b.usersMutex.RLock()
 			if msg.Broadcast {
 				for _, ch := range b.users {
-					// Гарантированная доставка, либо в горутину
+					localMsg := msg // копия для безопасности
 					go func(c chan Message) {
-						c <- msg
+						c <- localMsg
 					}(ch)
 				}
 			} else {
 				ch, ok := b.users[msg.Recipient]
 				if ok {
+					localMsg := msg
 					go func(c chan Message) {
-						c <- msg
+						c <- localMsg
 					}(ch)
 				}
 			}
@@ -59,6 +60,13 @@ func (b *Broker) Run() {
 }
 
 func (b *Broker) SendMessage(msg Message) error {
+
+	select {
+	case <-b.ctx.Done():
+		return b.ctx.Err()
+	default:
+	}
+
 	select {
 	case <-b.done:
 		return context.Canceled
